@@ -12,6 +12,7 @@ function check_mysql {
                 systemctl start mariadb
                 sleep 3
             echo "[INFO] mysqld is started....."
+        fi
 }
 
 function check_httpd {
@@ -24,6 +25,7 @@ function check_httpd {
                 systemctl start httpd
                 sleep 3
             echo "[INFO] httpd is started....."
+        fi
 }
 
 function check_process {
