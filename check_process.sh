@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 
-date=`date +%m-%d-%Y`
+date=`date +%m-%d-%Y-%T`
 processLogFile="/var/log/check_process.log"
 
 function check_mysql {
