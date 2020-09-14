@@ -2,6 +2,7 @@
 #
 
 date=`date +%m-%d-%Y`
+processLogFile="/var/log/check_process.log"
 
 function check_mysql {
     echo -e "[INFO: ${date}] Checking mysql process if running....."
@@ -17,7 +18,7 @@ function check_mysql {
 }
 
 function check_httpd {
-    echo -e "[INFO] Checking httpd process if running....."
+    echo -e "[INFO: ${date}] Checking httpd process if running....."
         if pgrep httpd > /dev/null 2>&1; then
             echo "[INFO: ${date}] httpd is running....."
         else
@@ -34,4 +35,4 @@ function check_process {
     check_httpd
 }
 
-check_process
+check_process >> ${processLogFile}
