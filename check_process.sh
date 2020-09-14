@@ -1,30 +1,31 @@
 #!/bin/bash
 #
 
+date=`date +%m-%d-%Y`
 
 function check_mysql {
-    echo -e "[INFO] Checking mysql process if running....."
+    echo -e "[INFO: ${date}] Checking mysql process if running....."
         if pgrep mysqld > /dev/null 2>&1; then
-            echo "[INFO] mysqld is running....."
+            echo "[INFO: ${date}] mysqld is running....."
         else
-            echo "[INFO] mysqld is stopped....."
-            echo "[INFO] starting mysqld service"
+            echo "[INFO: ${date}] mysqld is stopped....."
+            echo "[INFO: ${date}] starting mysqld service"
                 systemctl start mariadb
                 sleep 3
-            echo "[INFO] mysqld is started....."
+            echo "[INFO: ${date}] mysqld is started....."
         fi
 }
 
 function check_httpd {
     echo -e "[INFO] Checking httpd process if running....."
         if pgrep httpd > /dev/null 2>&1; then
-            echo "[INFO] httpd is running....."
+            echo "[INFO: ${date}] httpd is running....."
         else
-            echo "[INFO] httpd is stopped....."
-            echo "[INFO] starting httpd service"
+            echo "[INFO: ${date}] httpd is stopped....."
+            echo "[INFO: ${date}] starting httpd service"
                 systemctl start httpd
                 sleep 3
-            echo "[INFO] httpd is started....."
+            echo "[INFO: ${date}] httpd is started....."
         fi
 }
 
